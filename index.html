@@ -1,0 +1,178 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="Viora Finds — premium finds at discounted prices.">
+<meta name="theme-color" content="#f6f8f6">
+<title>Viora Finds — Curated Finds, Better Prices</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;1,400;1,500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<link rel="manifest" href="manifest.webmanifest">
+</head>
+<body>
+<div class="vf-cursor-glow" aria-hidden="true"></div>
+<div class="vf-progress" aria-hidden="true"><i></i></div>
+
+<header class="site-header">
+  <a class="brand" href="#home" aria-label="Viora Finds home">
+    <img src="logo.png" alt="Viora Finds logo">
+    <span>Viora Finds</span>
+  </a>
+
+  <nav class="desktop-nav" aria-label="Primary navigation">
+    <a href="#shop">Shop</a>
+    <a href="#deals">Today's Deals</a>
+    <a href="#about">About</a>
+  </nav>
+
+  <div class="header-actions">
+    <a class="provider-link" href="provider.html">Provider</a>
+    <button class="icon-button" id="cartButton" type="button" aria-label="Open shopping bag">
+      Bag <b id="cartCount">0</b>
+    </button>
+  </div>
+</header>
+
+<main>
+<section class="hero" id="home">
+  <div class="hero-copy">
+    <p class="eyebrow">CURATED FINDS · BETTER PRICES</p>
+    <h1>Good things.<br><em>Smarter prices.</em></h1>
+    <p class="hero-text">Discover a changing collection of discounted products, selected with a simple idea: great finds should feel great to buy.</p>
+    <a class="primary-button" href="#shop">Explore the finds <span>↘</span></a>
+  </div>
+
+  <div class="hero-orbit" aria-hidden="true">
+    <div class="orbit orbit-a"></div>
+    <div class="orbit orbit-b"></div>
+    <div class="hero-card">
+      <span>VIORA</span>
+      <strong>FINDS</strong>
+      <small>discounted · discovered · delightful</small>
+    </div>
+  </div>
+</section>
+
+<section id="advertising" class="ad-section" aria-label="Advertisements"></section>
+
+<section class="section" id="deals">
+  <div class="section-heading">
+    <div>
+      <p class="eyebrow">TODAY'S DEALS</p>
+      <h2>Little luxuries.<br>Lovely prices.</h2>
+    </div>
+    <p>Fresh offers appear here whenever the provider publishes a deal.</p>
+  </div>
+  <div class="product-grid" id="dealGrid"></div>
+</section>
+
+<section class="shop-layout section" id="shop">
+  <aside>
+    <p class="eyebrow">BROWSE</p>
+    <div id="categoryList" class="categories"></div>
+  </aside>
+
+  <div class="catalog">
+    <div class="catalog-top">
+      <div>
+        <p class="eyebrow">THE COLLECTION</p>
+        <h2>Shop all finds.</h2>
+      </div>
+      <label class="search">
+        <span>⌕</span>
+        <input id="searchInput" type="search" placeholder="Search products..." autocomplete="off">
+      </label>
+    </div>
+
+    <div class="product-grid" id="productGrid"></div>
+    <div class="empty-state" id="emptyState" hidden>
+      <h3>Nothing here yet.</h3>
+      <p>Your provider can add products from the Provider dashboard.</p>
+    </div>
+  </div>
+</section>
+
+<section class="about section" id="about">
+  <div>
+    <p class="eyebrow">ABOUT VIORA FINDS</p>
+    <h2>A wholesale world,<br><em>made easy to browse.</em></h2>
+  </div>
+  <p>Viora Finds brings together a wide range of products from a wholesale shop and presents the best discounted finds in one calm, simple storefront. When you find something you love, your order is completed directly with the provider on WhatsApp.</p>
+</section>
+</main>
+
+<footer id="contact">
+  <div>
+    <span class="footer-logo">Viora Finds</span>
+    <p>Find it. Love it. Save on it.</p>
+  </div>
+  <a href="provider.html">Provider dashboard ↗</a>
+</footer>
+
+<!-- Shopping bag -->
+<div id="cartDrawer" class="drawer" aria-hidden="true">
+  <div class="drawer-backdrop" id="drawerBackdrop"></div>
+  <aside class="drawer-panel" aria-label="Shopping bag">
+    <div class="drawer-head">
+      <h2>Your bag</h2>
+      <button id="closeCart" type="button" aria-label="Close bag">×</button>
+    </div>
+    <div id="cartItems"></div>
+    <div class="drawer-foot">
+      <p>Ready to order?</p>
+      <button class="primary-button full" id="whatsappButton" type="button">Order on WhatsApp <span>↗</span></button>
+      <small>You'll add your delivery details before WhatsApp opens.</small>
+    </div>
+  </aside>
+</div>
+
+<!-- Product detail -->
+<div id="productModal" class="vf-modal" aria-hidden="true">
+  <div class="vf-modal-backdrop" data-close-product></div>
+  <article class="vf-product-sheet" role="dialog" aria-modal="true" aria-label="Product details">
+    <button class="vf-close" data-close-product type="button" aria-label="Close product">×</button>
+    <div id="modalProduct"></div>
+  </article>
+</div>
+
+<!-- Checkout -->
+<div id="checkoutModal" class="vf-modal" aria-hidden="true">
+  <div class="vf-modal-backdrop" data-close-checkout></div>
+  <article class="vf-checkout-sheet" role="dialog" aria-modal="true" aria-label="WhatsApp checkout">
+    <button class="vf-close" data-close-checkout type="button" aria-label="Close checkout">×</button>
+    <div class="vf-kicker">WHATSAPP CHECKOUT</div>
+    <h2>Almost yours.</h2>
+    <p class="vf-muted">Add your delivery details and we'll prepare the order for WhatsApp.</p>
+
+    <form id="vfCheckout">
+      <div class="vf-form-grid">
+        <label>Full name<input required id="vfName" autocomplete="name" placeholder="Your name"></label>
+        <label>Mobile number<input required id="vfPhone" autocomplete="tel" inputmode="tel" placeholder="+91"></label>
+        <label class="wide">House / Flat<input required id="vfHouse" autocomplete="address-line1" placeholder="Flat, house, building"></label>
+        <label class="wide">Street / Area<input required id="vfArea" autocomplete="address-line2" placeholder="Street or area"></label>
+        <label>City<input required id="vfCity" autocomplete="address-level2"></label>
+        <label>State<input required id="vfState" autocomplete="address-level1"></label>
+        <label>PIN code<input required id="vfPin" inputmode="numeric" autocomplete="postal-code" pattern="[0-9]{6}" maxlength="6"></label>
+        <label class="wide">Delivery note <span>(optional)</span><textarea id="vfNote" placeholder="Anything the provider should know?"></textarea></label>
+      </div>
+      <div id="vfCheckoutSummary" class="vf-order-summary"></div>
+      <button class="primary-button full" type="submit">Continue to WhatsApp <span>↗</span></button>
+    </form>
+  </article>
+</div>
+
+<!-- Mobile navigation: wishlist removed -->
+<nav class="vf-mobile-nav" aria-label="Mobile navigation">
+  <a href="#home" class="active"><span>⌂</span><small>Home</small></a>
+  <a href="#shop"><span>◇</span><small>Shop</small></a>
+  <a href="#deals"><span>✦</span><small>Deals</small></a>
+  <button id="vfMobileBag" type="button"><span>Bag <b id="vfBagCount">0</b></span><small>Bag</small></button>
+</nav>
+
+<script src="config.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
