@@ -97,7 +97,20 @@
           <input id="pp" type="number" min="0" step="1" placeholder="Discounted price (₹)" required>
         </div>
         <textarea id="pd" placeholder="Product description"></textarea>
-        <input id="pi" type="file" accept="image/*">
+        <label class="image-field">
+  <span>Product image URL</span>
+  <input
+    id="pi"
+    type="url"
+    placeholder="Paste GitHub image URL"
+    autocomplete="off"
+  >
+  <small>
+    Example:
+    https://YOUR-USERNAME.github.io/YOUR-REPO/images/products/product.jpg
+  </small>
+  <img id="productImagePreview" class="image-preview" alt="Product preview" hidden>
+</label>
         <label class="check"><input id="deal" type="checkbox"> Feature in Today's Deals</label>
         <label class="check"><input id="activeProduct" type="checkbox" checked> Visible in storefront</label>
         <div class="form-actions">
@@ -115,7 +128,19 @@
         <input id="at" placeholder="Advertisement headline" required>
         <input id="ax" placeholder="Supporting text">
         <input id="ab" placeholder="Button label" value="Shop now">
-        <input id="ai" type="file" accept="image/*">
+        <label class="image-field">
+  <span>Advertisement image URL</span>
+  <input
+    id="ai"
+    type="url"
+    placeholder="Paste GitHub image URL"
+    autocomplete="off"
+  >
+  <small>
+    Paste the URL of an image stored in your GitHub repository.
+  </small>
+  <img id="adImagePreview" class="image-preview" alt="Advertisement preview" hidden>
+</label>
         <label class="check"><input id="activeAd" type="checkbox" checked> Publish on homepage</label>
         <div class="form-actions">
           <button class="primary-button" type="submit">Save advertisement <span>↗</span></button>
